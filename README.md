@@ -1,6 +1,8 @@
 # Twig Preview App using React
 
+<kbd>
 ![Twig Preview App](./screenshots/React_Twig_Preview_App.png)
+</kbd>
 
 A simple React app to preview your Twig template code. 
 
