@@ -1,5 +1,7 @@
 # Twig Preview App using React
 
+![Twig Preview App](./screenshots/React_Twig_Preview_App.png)
+
 A simple React app to preview your Twig template code. 
 
 App allows you to input twig template and also pass JSON data to the template.
