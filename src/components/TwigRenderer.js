@@ -70,12 +70,13 @@ function TwigRenderer() {
   };
 
   return (
-    <div className="container py-4">
+    <div className="py-4">
       <h1 className="text-center mb-4">Twig Template Renderer</h1>
       <div className="row mb-4">
         <div className="col-md-6">
           <h3>Twig Template</h3>
           <textarea
+            rows={15}
             className="form-control template-textarea"
             value={twigCode}
             onChange={(e) => setTwigCode(e.target.value)}
@@ -85,6 +86,7 @@ function TwigRenderer() {
         <div className="col-md-6">
           <h3>JSON Data</h3>
           <textarea
+          rows={15}
             className="form-control template-textarea"
             value={jsonData}
             onChange={(e) => setJsonData(e.target.value)}
@@ -94,7 +96,7 @@ function TwigRenderer() {
       </div>
       <div className="text-center mb-4">
         <button className="btn btn-primary" onClick={handleRender}>
-          Render
+          Generate Preview
         </button>
       </div>
       <div className="row">
