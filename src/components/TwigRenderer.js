@@ -135,19 +135,19 @@ function TwigRenderer() {
               className="rendered-output"
               dangerouslySetInnerHTML={createMarkup(output)}
             />
+            <div className="form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="showCodeCheckbox"
+                checked={showCode}
+                onChange={(e) => setShowCode(e.target.checked)}
+              />
+              <label className="form-check-label" htmlFor="showCodeCheckbox">
+                Show code
+              </label>
+            </div>
             {showCode && <pre className="code-output">{output}</pre>}
-          </div>
-          <div className="form-check mt-3">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="showCodeCheckbox"
-              checked={showCode}
-              onChange={(e) => setShowCode(e.target.checked)}
-            />
-            <label className="form-check-label" htmlFor="showCodeCheckbox">
-              Show code
-            </label>
           </div>
         </div>
       </div>

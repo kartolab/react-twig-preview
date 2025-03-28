@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './twig_logo.png';
 import './App.css';
 import TwigRenderer from './components/TwigRenderer';
 
@@ -6,7 +6,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Preview Twig Template</h1>
+        <img src={logo} alt="logo" width={48} height={48} />
+        <h1>Twig Preview</h1>
       </header>
       <div className="content">
         <TwigRenderer />
