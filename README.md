@@ -20,3 +20,11 @@ App allows you to input twig template and also pass JSON data to the template.
 `npm start`
 
 Open `http://localhost:3000/` in your preferred browser
+
+## Supports
+
+* HTML
+* CSS
+* Twig syntaxes
+* Javascript
+* JQuery ^3.7.1

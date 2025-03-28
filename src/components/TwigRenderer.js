@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as Twig from "twig";
 
 function TwigRenderer() {
-  const initialTemplate = 
-`<div style="color: blue;">
-  <h1>Welcome {{ name }}!</h1>
-  <ul>
+  const initialTemplate = `<div style="color: blue;">
+<h1>Welcome {{ name }}!</h1>
+<ul>
     {% for item in items %}
-      <li style="color: {{ item.color }}">{{ item.text }}</li>
+<li style="color: {{ item.color }}">{{ item.text }}</li>
     {% endfor %}
-  </ul>
+</ul>
+<script>
+    console.log('Template rendered!');
+    document.querySelector('h1').addEventListener('click', () => {
+      alert('Hello from rendered JavaScript!');
+    });
+</script>
 </div>`;
 
   // Initial JSON data example with proper formatting
-  const initialData = 
-`{
+  const initialData = `{
   "name": "User",
   "items": [
     {"text": "First Item", "color": "red"},
@@ -22,9 +26,31 @@ function TwigRenderer() {
     {"text": "Third Item", "color": "blue"}
   ]
 }`;
+
   const [twigCode, setTwigCode] = useState(initialTemplate);
   const [jsonData, setJsonData] = useState(initialData);
   const [output, setOutput] = useState("");
+  const outputRef = useRef(null);
+
+  useEffect(() => {
+    if (output && outputRef.current) {
+      // Find any script tags in the output
+      const container = outputRef.current;
+      const scripts = container.getElementsByTagName("script");
+      // Execute each script
+      Array.from(scripts).forEach((oldScript) => {
+        const newScript = document.createElement("script");
+        // Copy all attributes
+        Array.from(oldScript.attributes).forEach((attr) => {
+          newScript.setAttribute(attr.name, attr.value);
+        });
+        // Copy the content
+        newScript.textContent = oldScript.textContent;
+        // Replace the old script with the new one
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    }
+  }, [output]);
 
   const handleRender = () => {
     try {
@@ -79,12 +105,11 @@ function TwigRenderer() {
       <div style={styles.bottomRow}>
         <h3>Output</h3>
         <div style={styles.output}>
-          {/* Rendered HTML output */}
           <div
+            ref={outputRef}
             style={styles.renderedOutput}
             dangerouslySetInnerHTML={createMarkup(output)}
           />
-          {/* Raw HTML output */}
           <pre style={styles.codeOutput}>{output}</pre>
         </div>
       </div>
@@ -107,7 +132,7 @@ const styles = {
     display: "flex",
     gap: "20px",
     marginBottom: "20px",
-    width: "100%", // Full width
+    width: "100%",
   },
   headerRow: {
     display: "flex",
@@ -117,7 +142,7 @@ const styles = {
   },
   column: {
     flex: 1,
-    width: "50%", // Ensure columns take equal space
+    width: "50%",
   },
   textarea: {
     width: "100%",
@@ -130,7 +155,7 @@ const styles = {
     whiteSpace: "pre",
     overflowWrap: "normal",
     overflowX: "auto",
-    boxSizing: "border-box", // Include padding in width calculation
+    boxSizing: "border-box",
   },
   buttonContainer: {
     textAlign: "center",
