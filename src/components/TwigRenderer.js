@@ -72,7 +72,7 @@ function TwigRenderer() {
   return (
     <div className="py-4">
       <div className="row mb-4">
-        <div className="col-md-6">
+        <div className="col-md-8">
           <h3>Twig Template</h3>
           <textarea
             rows={15}
@@ -96,7 +96,7 @@ function TwigRenderer() {
             }}
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-4">
           <h3>JSON Data</h3>
           <textarea
           rows={15}

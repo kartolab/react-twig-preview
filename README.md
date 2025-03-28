@@ -1,4 +1,4 @@
-# Twig Preview App using React
+# Preview Twig Template app using React + Bootstrap
 
 | ![Twig Preview App](./screenshots/React_Twig_Preview_App.png) |
 |:------------------------------------------------:|

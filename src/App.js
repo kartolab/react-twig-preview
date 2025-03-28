@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Twig Renderer</h1>
+        <h1>Preview Twig Template</h1>
       </header>
       <div className="content">
         <TwigRenderer />
