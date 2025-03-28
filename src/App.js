@@ -4,7 +4,7 @@ import TwigRenderer from './components/TwigRenderer';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <TwigRenderer />
     </div>
   );

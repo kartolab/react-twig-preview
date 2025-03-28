@@ -1,4 +1,9 @@
 /* Bootstrap will handle most styling */
+.template-textarea {
+    min-height: 400px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
 .code-output {
     white-space: pre-wrap;
     background-color: #f8f9fa;
