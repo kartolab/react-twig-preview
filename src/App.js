@@ -5,7 +5,12 @@ import TwigRenderer from './components/TwigRenderer';
 function App() {
   return (
     <div className="App">
-      <TwigRenderer />
+      <header className="App-header">
+        <h1>Twig Renderer</h1>
+      </header>
+      <div className="content">
+        <TwigRenderer />
+      </div>
     </div>
   );
 }

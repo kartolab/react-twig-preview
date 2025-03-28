@@ -71,7 +71,6 @@ function TwigRenderer() {
 
   return (
     <div className="py-4">
-      <h1 className="text-center mb-4">Twig Template Renderer</h1>
       <div className="row mb-4">
         <div className="col-md-6">
           <h3>Twig Template</h3>
