@@ -80,6 +80,20 @@ function TwigRenderer() {
             value={twigCode}
             onChange={(e) => setTwigCode(e.target.value)}
             placeholder="Enter Twig code here..."
+            spellCheck="false"
+            onKeyDown={(e) => {
+              if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = e.target.selectionStart;
+                const end = e.target.selectionEnd;
+                const spaces = '    ';
+                const value = e.target.value;
+                setTwigCode(value.substring(0, start) + spaces + value.substring(end));
+                setTimeout(() => {
+                  e.target.selectionStart = e.target.selectionEnd = start + spaces.length;
+                }, 0);
+              }
+            }}
           />
         </div>
         <div className="col-md-6">
@@ -90,6 +104,20 @@ function TwigRenderer() {
             value={jsonData}
             onChange={(e) => setJsonData(e.target.value)}
             placeholder="Enter JSON data here..."
+            spellCheck="false"
+            onKeyDown={(e) => {
+              if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = e.target.selectionStart;
+                const end = e.target.selectionEnd;
+                const spaces = '    ';
+                const value = e.target.value;
+                setJsonData(value.substring(0, start) + spaces + value.substring(end));
+                setTimeout(() => {
+                  e.target.selectionStart = e.target.selectionEnd = start + spaces.length;
+                }, 0);
+              }
+            }}
           />
         </div>
       </div>

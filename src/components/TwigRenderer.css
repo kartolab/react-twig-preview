@@ -1,8 +1,20 @@
-/* Bootstrap will handle most styling */
+/* Code editor styling for the textarea */
 .template-textarea {
+    white-space: pre !important;
+    overflow-x: auto !important;
     min-height: 400px;
     width: 100%;
     margin-bottom: 1rem;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1rem;
+    border: 1px solid #454545;
+    border-radius: 4px;
+    line-height: 1.5;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    resize: vertical;
 }
 .code-output {
     white-space: pre-wrap;
